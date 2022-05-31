@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MeditateComponent } from './meditate.component';
-
+import { SharedModule } from '../shared/shared.module';
+import {MatIconModule} from '@angular/material/icon'; 
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -9,7 +11,10 @@ import { MeditateComponent } from './meditate.component';
     MeditateComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule,
+    MatIconModule,
+    SharedModule
   ]
 })
 export class MeditateModule { }
