@@ -2,3 +2,34 @@
   <mat-icon routerLink="/">home</mat-icon>
   Meditate
 </app-nav>
+
+<!-- Container -->
+<app-overview
+  *ngIf="
+    this.meditate.step === 0 || this.meditate.step === this.meditate.nbStep
+  "
+>
+</app-overview>
+
+<!-- Steps -->
+
+<app-time *ngIf="this.meditate.step === 1"> </app-time>
+
+<app-mentor *ngIf="this.meditate.step === 2"> </app-mentor>
+
+<app-challenge *ngIf="this.meditate.step === 3"> </app-challenge>
+
+<!-- Navigation (meditation) -->
+<button (click)="this.meditate.prevStep()" *ngIf="this.meditate.step > 0">
+  previous step
+</button>
+
+<button
+  (click)="this.meditate.nextStep()"
+  *ngIf="this.meditate.step < this.meditate.nbStep"
+>
+  next
+</button>
+
+<mat-progress-bar [value]="(100 / this.meditate.nbStep) * this.meditate.step">
+</mat-progress-bar>

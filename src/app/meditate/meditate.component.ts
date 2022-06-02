@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MeditateService } from '../services/meditate.service';
 
 @Component({
   selector: 'app-meditate',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeditateComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(public meditate:MeditateService) { }
 
   ngOnInit(): void {
   }

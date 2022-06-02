@@ -11,6 +11,7 @@ import { NavComponent } from './shared/nav/nav.component'
 import { MeditateModule } from './meditate/meditate.module';
 import { SharedModule } from './shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table'  
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
     SharedModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
