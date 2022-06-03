@@ -4,33 +4,37 @@ import { __asyncDelegator } from 'tslib';
 interface IStep {
   step: number,
   name: string,
-  completed: boolean
+  completed: () => boolean
 }
 @Injectable({
   providedIn: 'root'
 })
 export class MeditateService implements DoCheck{
+  
+  //! steps 
   step = 0
   nbStep = 4
-
-  time = new FormControl("", {validators: [Validators.max(1000)] })
-  mentor = new FormControl
-  challenges= new FormControl
-  goals= new FormControl
-  isSubmitted = false
-  registerForm = new FormGroup({
-    time: this.time,
-    mentor: this.mentor,
-    challenges: this.challenges,
-    goals: this.goals
-  })
-
   nextStep():void {
     this.step+=1;
   }
   prevStep():void {
     this.step-=1;
   }
+
+  //! form
+  time = new FormControl("", {validators: [Validators.max(1000)] })
+  mentor = new FormControl
+  challenges= new FormControl
+  goals= new FormControl
+  
+  registerForm = new FormGroup({
+    time: this.time,
+    mentor: this.mentor,
+    challenges: this.challenges,
+    goals: this.goals
+  })
+  isSubmitted = false
+
 
   log(formData:FormGroup):void {
     console.log(formData.value)
@@ -43,10 +47,8 @@ export class MeditateService implements DoCheck{
     }, 5000)
   }
 
-  ngDoCheck(): void {
 
-  }
-
+  //! overview table
   checkIfEmpty():boolean {
     const completedSteps = this.allSteps.filter(step => step.completed)
     console.log(completedSteps)
@@ -58,21 +60,24 @@ export class MeditateService implements DoCheck{
     {
       step: 1, 
       name: "Your time",
-      completed: this.time.value && this.time.valid?true:false
+      completed: () => this.time.value && this.time.valid
     },
     {
       step:2, 
       name: "Your mentor",
-      completed:  this.mentor.value&&this.mentor.valid?true:false
+      completed:  () => this.mentor.value && this.mentor.valid
     },
   
     {
       step:3, 
       name: "Your challenges",
-      completed:this.challenges.value && this.challenges.valid?true:false
+      completed:() => this.challenges.value && this.challenges.valid
   
     }
     ]
 
   constructor() { }
+  ngDoCheck(): void {
+
+  }
 }

@@ -26,15 +26,9 @@ import {MatRadioModule} from '@angular/material/radio';
   imports: [
     CommonModule,
     AppRoutingModule,
-    MatIconModule,
-    MatProgressBarModule,
     SharedModule,
-    MatTableModule,
-    MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatRadioModule
-
   ],
   providers:[
     MeditateService

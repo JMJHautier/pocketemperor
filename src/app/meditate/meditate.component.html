@@ -7,7 +7,7 @@
 <div class="container">
   <app-overview *ngIf="meditate.step === 0"> </app-overview>
 
-  <!-- form -->
+  <!-- Form -->
   <form
     id="meditateForm"
     [formGroup]="registerForm"
@@ -23,12 +23,13 @@
   </form>
 </div>
 <div class="push"></div>
+
 <!-- Navigation (meditation) -->
 <div class="navForm">
   <div class="navForm__buttons">
     <button
       (click)="meditate.prevStep()"
-      *ngIf="meditate.step > 0"
+      [style.visibility]="meditate.step > 0 ? 'visible' : 'hidden'"
       mat-raised-button
     >
       back
@@ -53,6 +54,7 @@
       next
     </button>
   </div>
-  <mat-progress-bar [value]="(100 / meditate.nbStep) * meditate.step">
+  <mat-progress-bar [value]="(100.0 / meditate.nbStep) * meditate.step">
   </mat-progress-bar>
 </div>
+{{ (100.0 / meditate.nbStep) * meditate.step }}
