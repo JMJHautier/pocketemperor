@@ -1,3 +1,17 @@
+@import "../../../styles.scss";
+
+:host {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-top:5vh;
+
+}
+h2 {
+  margin-top:10vh;
+}
+
 tr.mat-header-row  {
 display:none;
 }
@@ -18,3 +32,8 @@ display:none;
   font-style: italic;
 }
 
+article {
+  font-size:16px;
+  margin:auto;
+  width:80%;
+}

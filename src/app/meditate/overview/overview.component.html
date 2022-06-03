@@ -1,3 +1,14 @@
+<div class="subform__title__bar"></div>
+<h2 class="subform__title">Overview</h2>
+<div class="subform__title__bar"></div>
+
+<h2>
+  {{
+    meditate.step === meditate.nbStep
+      ? "You have successfuly reflected on:"
+      : "During your meditation, you will reflect on"
+  }}
+</h2>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!-- Step Column -->
 
@@ -24,3 +35,11 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<article *ngIf="showOutcome">
+  <br />
+  <strong>
+    {{ meditate.registerForm.value | json }}
+  </strong>
+  <h2>will reset in 5 sec</h2>
+</article>

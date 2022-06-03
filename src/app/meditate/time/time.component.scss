@@ -1,0 +1,23 @@
+:host {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-top:5vh;
+
+}
+h2 {
+  margin-top:10vh;
+}
+.mat-radio-button {
+  font-size:1.5em;
+}
+
+
+.wrapper {
+  width:60vw;
+}
+p {
+  margin-top:5px;
+  width:fit-content;
+}

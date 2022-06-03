@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MeditateService } from 'src/app/services/meditate.service';
 
 @Component({
   selector: 'app-challenge',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./challenge.component.scss']
 })
 export class ChallengeComponent implements OnInit {
-
-  constructor() { }
+  @Input() step=''
+  constructor(public meditate:MeditateService) { }
 
   ngOnInit(): void {
   }

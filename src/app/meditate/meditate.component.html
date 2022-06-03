@@ -4,32 +4,55 @@
 </app-nav>
 
 <!-- Container -->
-<app-overview
-  *ngIf="
-    this.meditate.step === 0 || this.meditate.step === this.meditate.nbStep
-  "
->
-</app-overview>
+<div class="container">
+  <app-overview *ngIf="meditate.step === 0"> </app-overview>
 
-<!-- Steps -->
+  <!-- form -->
+  <form
+    id="meditateForm"
+    [formGroup]="registerForm"
+    (ngSubmit)="meditate.log(registerForm)"
+  >
+    <app-time step="1" *ngIf="meditate.step === 1"> </app-time>
 
-<app-time *ngIf="this.meditate.step === 1"> </app-time>
+    <app-mentor step="2" *ngIf="meditate.step === 2"> </app-mentor>
 
-<app-mentor *ngIf="this.meditate.step === 2"> </app-mentor>
+    <app-challenge step="3" *ngIf="meditate.step === 3"> </app-challenge>
 
-<app-challenge *ngIf="this.meditate.step === 3"> </app-challenge>
-
+    <app-overview *ngIf="meditate.step === meditate.nbStep"> </app-overview>
+  </form>
+</div>
+<div class="push"></div>
 <!-- Navigation (meditation) -->
-<button (click)="this.meditate.prevStep()" *ngIf="this.meditate.step > 0">
-  previous step
-</button>
+<div class="navForm">
+  <div class="navForm__buttons">
+    <button
+      (click)="meditate.prevStep()"
+      *ngIf="meditate.step > 0"
+      mat-raised-button
+    >
+      back
+    </button>
 
-<button
-  (click)="this.meditate.nextStep()"
-  *ngIf="this.meditate.step < this.meditate.nbStep"
->
-  next
-</button>
+    <button
+      form="meditateForm"
+      mat-raised-button
+      type="submit"
+      *ngIf="!isEmpty && meditate.step === meditate.nbStep"
+      color="accent"
+    >
+      Send
+    </button>
 
-<mat-progress-bar [value]="(100 / this.meditate.nbStep) * this.meditate.step">
-</mat-progress-bar>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="meditate.nextStep()"
+      *ngIf="meditate.step < meditate.nbStep"
+    >
+      next
+    </button>
+  </div>
+  <mat-progress-bar [value]="(100 / meditate.nbStep) * meditate.step">
+  </mat-progress-bar>
+</div>

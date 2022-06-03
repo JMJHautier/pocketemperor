@@ -10,4 +10,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
   width:100vw;
   height: 100vh;
+
+}
+
+.subform__title__bar {
+  height:2px;
+  width:100vw;
+  border-bottom:2px solid lightgrey;
+}
+
+.subform__title.subform__title  {
+  margin:auto 0px;
 }

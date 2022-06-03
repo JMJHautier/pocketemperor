@@ -1,1 +1,33 @@
-<p>time works!</p>
+<div class="subform__title__bar"></div>
+<h2 class="subform__title">{{ step }}.Your Time</h2>
+<div class="subform__title__bar"></div>
+
+<h2>Is it...</h2>
+
+<mat-radio-group
+  ngModel
+  [formControl]="meditate.time"
+  aria-label="Select an option"
+  #radio="ngForm"
+>
+  <div class="wrapper">
+    <mat-radio-button value="morning">the morning</mat-radio-button>
+    <p [hidden]="radio.value !== 'morning'">
+      <em>
+        “When you arise in the morning, think of what a precious privilege it is
+        to be alive - to breathe, to think, to enjoy, to love.”</em
+      >
+    </p>
+  </div>
+  <br />
+
+  <div class="wrapper">
+    <mat-radio-button value="evening">the evening</mat-radio-button>
+    <p [hidden]="radio.value !== 'evening'">
+      <em
+        >"Allow not sleep to close your wearied eyes, until you have reckoned up
+        each daytime deed"
+      </em>
+    </p>
+  </div>
+</mat-radio-group>

@@ -11,6 +11,9 @@ import { ChallengeComponent } from './challenge/challenge.component';
 import { OverviewComponent } from './overview/overview.component';
 import { MeditateService } from '../services/meditate.service';
 import { MatTableModule } from '@angular/material/table'  
+import { MatButtonModule} from '@angular/material/button'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio'; 
 
 @NgModule({
   declarations: [
@@ -26,7 +29,11 @@ import { MatTableModule } from '@angular/material/table'
     MatIconModule,
     MatProgressBarModule,
     SharedModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatRadioModule
 
   ],
   providers:[

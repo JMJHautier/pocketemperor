@@ -1,0 +1,19 @@
+<div class="subform__title__bar"></div>
+<h2 class="subform__title">{{ step }}.Your challenges</h2>
+<div class="subform__title__bar"></div>
+
+<h3>What do you wish to achieve today</h3>
+<textarea
+  [formControl]="meditate.goals"
+  formControlName="challenges"
+  name="challenges"
+  id="challenges"
+></textarea>
+
+<h3>What challenges will you be facing?</h3>
+<textarea
+  [formControl]="meditate.challenges"
+  formControlName="action"
+  name="challenges"
+  id="actions"
+></textarea>

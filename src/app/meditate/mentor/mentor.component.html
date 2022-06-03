@@ -1,1 +1,37 @@
-<p>mentor works!</p>
+<div class="subform__title__bar"></div>
+<h2 class="subform__title">{{ step }}.Your Mentor</h2>
+<div class="subform__title__bar"></div>
+
+<div class="container__mentors">
+  <div *ngFor="let mentor of mentors" class="container__mentor">
+    <div>
+      <input
+        [formControl]="meditate.mentor"
+        name="mentor"
+        type="radio"
+        [id]="mentor.id"
+        [value]="mentor.name"
+      />
+      <label [for]="mentor.id">
+        <div
+          [ngClass]="{
+            img__wrapper: true,
+            selected: meditate.mentor.value === mentor.name
+          }"
+        >
+          <img [src]="mentor.img" />
+        </div>
+        <!-- <h3>{{ mentor.name }}</h3> -->
+      </label>
+    </div>
+  </div>
+</div>
+
+<article *ngIf="selectedMentor">
+  <strong>{{ selectedMentor.name }} </strong> <br />
+  <em> {{ selectedMentor.legend }}</em> <br />
+  <br />
+  <p>{{ selectedMentor.desc }}</p>
+</article>
+
+<h2 *ngIf="!selectedMentor.id">Who inspire you?</h2>

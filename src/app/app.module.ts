@@ -12,6 +12,7 @@ import { MeditateModule } from './meditate/meditate.module';
 import { SharedModule } from './shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table'  
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { MatTableModule } from '@angular/material/table'
     SharedModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatTableModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { MeditateService } from 'src/app/services/meditate.service';
 
-interface IOverview {
-    step: number,
-    name: string,
-    completed: boolean
-}
+
 
 @Component({
   selector: 'app-overview',
@@ -12,32 +9,20 @@ interface IOverview {
   styleUrls: ['./overview.component.scss']
 })
 
-export class OverviewComponent implements OnInit {
+export class OverviewComponent implements DoCheck {
 
-  constructor() { }
+  constructor(public meditate:MeditateService) { }
   displayedColumns: string[] = ['step', 'name', 'completed'];
-  dataSource:IOverview[]= 
-  [
-  {
-    step: 1, 
-    name: "Your time",
-    completed: false
-  },
-  {
-    step:2, 
-    name: "Your mentor",
-    completed:false
-  },
-
-  {
-    step:3, 
-    name: "Your challenges",
-    completed:false
-
+  dataSource = this.meditate.allSteps
+  showOutcome = this.meditate.isSubmitted
+  setDataSource():void {
+    this.dataSource= this.meditate.allSteps
+    console.log(this.meditate.allSteps)
   }
-  ]
+  ngDoCheck(): void {
+    this.dataSource= this.meditate.allSteps
+    this.showOutcome = this.meditate.isSubmitted
 
-  ngOnInit(): void {
   }
 
 }
