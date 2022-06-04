@@ -12,7 +12,6 @@ export class MeditateComponent implements OnInit {
   constructor(public meditate:MeditateService) { }
   registerForm = this.meditate.registerForm
   
-  isEmpty = this.meditate.checkIfEmpty()
   ngOnInit(): void {
   }
 

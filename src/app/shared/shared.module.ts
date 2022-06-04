@@ -6,6 +6,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,9 @@ import { MatRadioModule } from '@angular/material/radio';
     MatProgressBarModule,
     MatTableModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule,
+
   ], 
   exports: [
     NavComponent,
@@ -27,7 +30,9 @@ import { MatRadioModule } from '@angular/material/radio';
     MatProgressBarModule,
     MatTableModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule,
+
   ]
 })
 export class SharedModule { }

@@ -21,13 +21,13 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
+
     BrowserAnimationsModule,
     MatIconModule,
     MeditateModule,
-    SharedModule,
     MatCheckboxModule,
     MatButtonModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
