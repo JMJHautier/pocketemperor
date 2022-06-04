@@ -25,36 +25,4 @@
 <div class="push"></div>
 
 <!-- Navigation (meditation) -->
-<div class="navForm">
-  <div class="navForm__buttons">
-    <button
-      (click)="meditate.prevStep()"
-      [style.visibility]="meditate.step > 0 ? 'visible' : 'hidden'"
-      mat-raised-button
-    >
-      back
-    </button>
-
-    <button
-      form="meditateForm"
-      mat-raised-button
-      type="submit"
-      *ngIf="!isEmpty && meditate.step === meditate.nbStep"
-      color="accent"
-    >
-      Send
-    </button>
-
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="meditate.nextStep()"
-      *ngIf="meditate.step < meditate.nbStep"
-    >
-      next
-    </button>
-  </div>
-  <mat-progress-bar [value]="(100.0 / meditate.nbStep) * meditate.step">
-  </mat-progress-bar>
-</div>
-{{ (100.0 / meditate.nbStep) * meditate.step }}
+<app-nav-form></app-nav-form>
