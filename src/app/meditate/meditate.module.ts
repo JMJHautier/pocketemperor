@@ -29,7 +29,6 @@ import { NavFormComponent } from './nav-form/nav-form.component';
     CommonModule,
     AppRoutingModule,
     SharedModule,
-    FormsModule,
     ReactiveFormsModule,
   ],
   providers:[
