@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table'  
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     MeditateModule,
     MatCheckboxModule,
     MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

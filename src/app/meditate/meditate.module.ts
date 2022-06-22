@@ -14,7 +14,9 @@ import { MatTableModule } from '@angular/material/table'
 import { MatButtonModule} from '@angular/material/button'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
-import { NavFormComponent } from './nav-form/nav-form.component'; 
+import { NavFormComponent } from './nav-form/nav-form.component';
+import { QuoteComponent } from './quote/quote.component'; 
+import { QuotesService } from '../services/quotes.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { NavFormComponent } from './nav-form/nav-form.component';
     MentorComponent,
     ChallengeComponent,
     OverviewComponent,
-    NavFormComponent
+    NavFormComponent,
+    QuoteComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,8 @@ import { NavFormComponent } from './nav-form/nav-form.component';
     ReactiveFormsModule,
   ],
   providers:[
-    MeditateService
+    MeditateService,
+    QuotesService
   ]
 })
 export class MeditateModule { }

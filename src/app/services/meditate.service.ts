@@ -13,7 +13,7 @@ export class MeditateService implements DoCheck{
   
   //! steps 
   step = 0
-  nbStep = 4
+  nbStep = 5
   nextStep():void {
     this.step+=1;
   }
@@ -26,12 +26,13 @@ export class MeditateService implements DoCheck{
   mentor = new FormControl
   challenges= new FormControl
   goals= new FormControl
-  
+  quote = new FormControl
   registerForm = new FormGroup({
     time: this.time,
     mentor: this.mentor,
     challenges: this.challenges,
-    goals: this.goals
+    goals: this.goals,
+    quote: this.quote
   })
   isSubmitted = false
 
