@@ -39,13 +39,10 @@ export class QuoteComponent implements OnInit, OnChanges {
 
   }
   ngDoCheck():void {
-    if(this.meditate.quote.untouched)
-    console.log({
-      untouched: this.meditate.quote.untouched,
-      dirty: this.meditate.quote.dirty,
-    })
+    if(!this.meditate.quote.touched)
+{
       this.getRandomQuote()
-
+}
   }
   ngAfterContentInit():void {
   }

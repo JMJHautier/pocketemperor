@@ -6,22 +6,16 @@
 <!-- Container -->
 <div class="container">
   <app-overview *ngIf="meditate.step === 0"> </app-overview>
-
   <!-- Form -->
-  <form
-    id="meditateForm"
-    [formGroup]="registerForm"
-    (ngSubmit)="meditate.log(registerForm)"
-  >
-    <app-time step="1" *ngIf="meditate.step === 1"> </app-time>
-
-    <app-mentor step="2" *ngIf="meditate.step === 2"> </app-mentor>
-
-    <app-challenge step="3" *ngIf="meditate.step === 3"> </app-challenge>
-    <app-quote step="4" *ngIf="meditate.step === 4"></app-quote>
-
-    <app-overview *ngIf="meditate.step === meditate.nbStep"> </app-overview>
-  </form>
+  <div *ngIf="meditate.step > 0">
+    <form
+      id="meditateForm"
+      [formGroup]="registerForm"
+      (ngSubmit)="meditate.log(registerForm)"
+    >
+      <router-outlet></router-outlet>
+    </form>
+  </div>
 </div>
 <div class="push"></div>
 

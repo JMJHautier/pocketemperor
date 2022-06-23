@@ -1,15 +1,14 @@
 <div *ngIf="selectedQuotes.length">
-  <p> {{randomQuote.text}}</p>
-  <p> {{ randomQuote.mentor}}</p>
+  <p>{{ randomQuote.text }}</p>
+  <p>{{ randomQuote.mentor }}</p>
 
-  
-<h3>What do you wish to achieve today</h3>
-<textarea
-  [formControl]="meditate.quote"
-  formControlName="quote"
-  name="quote"
-  id="quote"
-></textarea>
+  <h3>What does this quote evoke to you?</h3>
+  <textarea
+    [formControl]="meditate.quote"
+    formControlName="quote"
+    name="quote"
+    id="quote"
+  ></textarea>
 </div>
 
 <div *ngIf="!selectedQuotes.length">

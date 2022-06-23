@@ -1,6 +1,7 @@
 import { DoCheck, Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { __asyncDelegator } from 'tslib';
+import {Router} from '@angular/router'
 interface IStep {
   step: number,
   name: string,
@@ -10,15 +11,23 @@ interface IStep {
   providedIn: 'root'
 })
 export class MeditateService implements DoCheck{
-  
+  constructor(private router:Router) { }
+
   //! steps 
   step = 0
   nbStep = 5
   nextStep():void {
     this.step+=1;
+    const url = `/meditate/${this.step}`
+    this.router.navigateByUrl(url)
   }
   prevStep():void {
     this.step-=1;
+    const url = `/meditate/${this.step}`
+
+    if(this.step === 0) this.router.navigateByUrl('/meditate')
+    else this.router.navigateByUrl(url)
+
   }
 
   //! form
@@ -74,10 +83,14 @@ export class MeditateService implements DoCheck{
       name: "Your challenges",
       completed:() => this.challenges.value && this.challenges.valid
   
+    }, 
+    {
+      step:4, 
+      name:"Reflection",
+      completed: () => this.challenges.value && this.quote.valid
     }
     ]
 
-  constructor() { }
   ngDoCheck(): void {
 
   }
