@@ -1,5 +1,9 @@
-<div *ngIf="quote.selectedQuotes.length">
-  <p>{{ quote.randomQuote.text }}</p>
+<div class="subform__title__bar"></div>
+<h2 class="subform__title">Reflection</h2>
+<div class="subform__title__bar"></div>
+
+<div *ngIf="quote.selectedQuotes.length" class="container">
+  <em class="quote">"{{ quote.randomQuote.text }}"</em>
   <p>{{ quote.randomQuote.mentor }}</p>
 
   <h3>What does this quote evoke to you?</h3>

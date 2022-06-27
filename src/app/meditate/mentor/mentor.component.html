@@ -19,7 +19,7 @@
             selected: meditate.mentor.value === mentor.name
           }"
         >
-          <img [src]="mentor.img" />
+          <img [src]="mentor.img" (click)="setQuote()" />
         </div>
         <!-- <h3>{{ mentor.name }}</h3> -->
       </label>

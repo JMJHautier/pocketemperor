@@ -10,7 +10,20 @@ h2 {
   margin-top:10vh;
 }
 
-textarea {
-  height:25vh;
+.container {
   width:80vw;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-top:5vh;
+}
+
+.quote {
+  font-size:1.2rem;
+}
+
+textarea {
+  height:30vh;
+  width: 80vw;
 }

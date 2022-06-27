@@ -1,13 +1,8 @@
 import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { firstValueFrom, tap } from 'rxjs';
 import { MeditateService } from 'src/app/services/meditate.service';
 import { QuotesService } from 'src/app/services/quotes.service';
-interface IMentor {
-  id:number,
-  img: string,
-  name: string,
-  legend: string,
-  desc: string
-}
+import { IMentor } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-mentor',
   templateUrl: './mentor.component.html',
@@ -23,14 +18,16 @@ export class MentorComponent implements DoCheck {
 
   ngDoCheck(): void {
     this.setDesc();
-    this.setQuote();
   }
 
 
   getQuotes () {
-    this.quote.getQuotes().subscribe((data) => {
-      this.quote.selectedQuotes = data
-    })
+    return firstValueFrom(
+      this.quote.getQuotes().pipe(tap((data) => {
+        this.quote.selectedQuotes = data
+      }))
+    )
+
   
     } 
     getRandomQuote() {
@@ -39,8 +36,8 @@ export class MentorComponent implements DoCheck {
   
     }
   
-    setQuote() {
-      this.getQuotes()
+    async setQuote() {
+      await this.getQuotes()
       this.getRandomQuote()
 
     }
