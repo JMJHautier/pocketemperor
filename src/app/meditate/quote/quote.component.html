@@ -1,6 +1,6 @@
-<div *ngIf="selectedQuotes.length">
-  <p>{{ randomQuote.text }}</p>
-  <p>{{ randomQuote.mentor }}</p>
+<div *ngIf="quote.selectedQuotes.length">
+  <p>{{ quote.randomQuote.text }}</p>
+  <p>{{ quote.randomQuote.mentor }}</p>
 
   <h3>What does this quote evoke to you?</h3>
   <textarea
@@ -11,6 +11,6 @@
   ></textarea>
 </div>
 
-<div *ngIf="!selectedQuotes.length">
+<div *ngIf="!quote.selectedQuotes.length">
   Pick a mentor in order to reflect on one of his/her quote
 </div>

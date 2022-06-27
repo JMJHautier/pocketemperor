@@ -1,5 +1,6 @@
-import { Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { MeditateService } from 'src/app/services/meditate.service';
+import { QuotesService } from 'src/app/services/quotes.service';
 interface IMentor {
   id:number,
   img: string,
@@ -15,13 +16,34 @@ interface IMentor {
 
 export class MentorComponent implements DoCheck {
   @Input() step=''
-  constructor(public meditate:MeditateService, ) { 
+
+  constructor(public meditate:MeditateService, public quote:QuotesService) { 
   
   }
 
   ngDoCheck(): void {
     this.setDesc();
+    this.setQuote();
   }
+
+
+  getQuotes () {
+    this.quote.getQuotes().subscribe((data) => {
+      this.quote.selectedQuotes = data
+    })
+  
+    } 
+    getRandomQuote() {
+      const random = Math.floor(Math.random()*this.quote.selectedQuotes.length)
+      this.quote.randomQuote = this.quote.selectedQuotes[random]
+  
+    }
+  
+    setQuote() {
+      this.getQuotes()
+      this.getRandomQuote()
+
+    }
   mentors: IMentor[]= [{
     id:1, 
     img:"../../assets/marcus.jpg",

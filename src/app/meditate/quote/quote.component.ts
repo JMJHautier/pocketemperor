@@ -15,34 +15,16 @@ import { MeditateComponent } from '../meditate.component';
 export class QuoteComponent implements OnInit, OnChanges {
 
   constructor(public quote:QuotesService, public meditate: MeditateService) { }
-  selectedQuotes:IQuote[]= []
-  randomQuote:IQuote = {id:0, mentor:'', text:''}
 
-  getQuotes () {
-  this.quote.getQuotes().subscribe((data) => {
-    this.selectedQuotes = data
-  })
 
-  } 
-  getRandomQuote() {
-    const random = Math.floor(Math.random()*this.selectedQuotes.length)
-    console.log(this.selectedQuotes)
-    console.log(random)
-    console.log(this.selectedQuotes[random])
-    this.randomQuote = this.selectedQuotes[random]
-
-  }
+ 
   ngOnInit(): void {
-    this.getQuotes()
   }
   ngOnChanges(): void {
 
   }
   ngDoCheck():void {
-    if(!this.meditate.quote.touched)
-{
-      this.getRandomQuote()
-}
+
   }
   ngAfterContentInit():void {
   }

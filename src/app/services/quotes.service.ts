@@ -29,4 +29,8 @@ export class QuotesService {
     }
 
   }
+
+
+  selectedQuotes:IQuote[]= []
+  randomQuote:IQuote = {id:0, mentor:'', text:''}
 }
