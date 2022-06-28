@@ -1,5 +1,4 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
 const cors = require("cors");
 const sqlite3 = require("sqlite3");
 const { open } = require("sqlite");
@@ -22,6 +21,12 @@ app.get("/", async (req, res) => {
   const messages = await db.all("SELECT * FROM Quote;");
   res.send(messages);
 });
+
+app.get("/mentor", async(req, res) => {
+  const db = await dbPromise;
+  const messages = await db.all("SELECT * FROM mentor;");
+  res.send(messages);
+})
 
 app.post("/message", async (req, res) => {
   try {
