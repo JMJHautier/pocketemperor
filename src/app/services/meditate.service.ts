@@ -2,6 +2,7 @@ import { DoCheck, Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { __asyncDelegator } from 'tslib';
 import {Router} from '@angular/router'
+import { HttpClient } from '@angular/common/http';
 interface IStep {
   step: number,
   name: string,
@@ -11,7 +12,7 @@ interface IStep {
   providedIn: 'root'
 })
 export class MeditateService implements DoCheck{
-  constructor(private router:Router) { }
+  constructor(private router:Router, public http:HttpClient) { }
 
   //! steps 
   step = 0
@@ -48,7 +49,8 @@ export class MeditateService implements DoCheck{
 
   log(formData:FormGroup):void {
     console.log(formData.value)
-    this.isSubmitted = true
+
+    this.http.post('http://localhost:8000/meditation', formData.value).subscribe((data)=> console.log(data))
 
     setTimeout(()=> {
       this.registerForm.reset()

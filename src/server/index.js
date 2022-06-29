@@ -28,15 +28,17 @@ app.get("/mentor", async(req, res) => {
   res.send(messages);
 })
 
-app.post("/message", async (req, res) => {
+app.post("/meditation", async (req, res) => {
   try {
     const db = await dbPromise;
-    const text = req.body.text;
-    const mentor = req.body.mentor;
+    const {time, challenges, mentor, quote, goals}  = req.body;
     console.log(req.body);
-    await db.run("INSERT INTO Quote (mentor, text) VALUES (?,?);", [
+    await db.run("INSERT INTO meditations (time, mentor, challenges, goals, quote) VALUES (?,?,?,?,?);", [
+      time,
       mentor,
-      text,
+      challenges,
+      goals,
+      quote
     ]);
     res.send("sent!");
   } catch (e) {
