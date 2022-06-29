@@ -7,6 +7,7 @@ import { MentorComponent } from './meditate/mentor/mentor.component';
 import { OverviewComponent } from './meditate/overview/overview.component';
 import { QuoteComponent } from './meditate/quote/quote.component';
 import { TimeComponent } from './meditate/time/time.component';
+import { ReflectComponent } from './reflect/reflect.component';
 
 const routes: Routes = [{
   path: '', 
@@ -41,7 +42,12 @@ const routes: Routes = [{
     component: OverviewComponent,
   },
 ]
-}];
+}, 
+  {
+    path:'reflect', 
+    component: ReflectComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

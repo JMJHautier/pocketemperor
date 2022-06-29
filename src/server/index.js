@@ -46,6 +46,11 @@ app.post("/meditation", async (req, res) => {
   }
 });
 
+app.get("/meditation", async (req, res) => {
+  const db = await dbPromise
+  const meditations = await db.all("SELECT * from meditations;")
+  res.send(meditations)
+})
 app.get("/time", (req, res) => {
   res.send("the current time is " + new Date().toLocaleTimeString());
 });

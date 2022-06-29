@@ -1,0 +1,63 @@
+<app-nav>
+  <mat-icon routerLink="/">home</mat-icon>
+  Reflect
+</app-nav>
+
+
+<div class="subform__title__bar"></div>
+<h2 class="subform__title">Overview</h2>
+<div class="subform__title__bar"></div>
+
+<h2>
+
+</h2>
+
+<div> 
+  Only show: 
+
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Step Column -->
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef class="header__table">id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="time">
+    <th mat-header-cell *matHeaderCellDef class="header__table">time</th>
+    <td mat-cell *matCellDef="let element">{{ element.time }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="mentor">
+    <th mat-header-cell *matHeaderCellDef class="header__table">mentor</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.mentor}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="challenges">
+    <th mat-header-cell *matHeaderCellDef class="header__table">challenges</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.challenges}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="goals">
+    <th mat-header-cell *matHeaderCellDef class="header__table">goals</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.goals}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="quote">
+    <th mat-header-cell *matHeaderCellDef class="header__table">quote</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.quote}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

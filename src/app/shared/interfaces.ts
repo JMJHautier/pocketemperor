@@ -11,3 +11,11 @@ export interface IMentor {
   legend: string,
   desc: string
 }
+
+export interface IMeditation {
+  time?: string, 
+  challenges?: string,
+  goals?: string,
+  mentor?: string, 
+  quote?:string
+}

@@ -14,10 +14,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table'  
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReflectComponent } from './reflect/reflect.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ReflectComponent,
   ],
   imports: [
     BrowserModule,

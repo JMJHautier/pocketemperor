@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { __asyncDelegator } from 'tslib';
 import {Router} from '@angular/router'
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IMeditation } from '../shared/interfaces';
 interface IStep {
   step: number,
   name: string,
@@ -59,6 +61,10 @@ export class MeditateService implements DoCheck{
     }, 5000)
   }
 
+  getMeditations():Observable<IMeditation[]>{
+    
+    return this.http.get<IMeditation[]>('http://localhost:8000/meditation') 
+  }
 
   //! overview table
   checkIfEmpty():boolean {
