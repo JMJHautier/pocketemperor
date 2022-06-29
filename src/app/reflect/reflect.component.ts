@@ -14,7 +14,7 @@ export class ReflectComponent implements OnInit {
 
   constructor(public meditate: MeditateService) { }
   dataSource: IMeditation[] = []
-  displayedColumns: string[] = ['id', 'time', 'mentor', 'challenges', 'goals', 'quote'];
+  displayedColumns: string[] = ['id', 'time', 'mentor', 'challenges', 'goals', 'quoteId', 'quote'];
 
   getMeditations():void {
     this.meditate.getMeditations().subscribe((data:IMeditation[])=> {

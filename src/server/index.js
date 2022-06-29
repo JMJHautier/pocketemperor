@@ -31,13 +31,14 @@ app.get("/mentor", async(req, res) => {
 app.post("/meditation", async (req, res) => {
   try {
     const db = await dbPromise;
-    const {time, challenges, mentor, quote, goals}  = req.body;
+    const {time, challenges, mentor, quote, goals, quoteId}  = req.body;
     console.log(req.body);
-    await db.run("INSERT INTO meditations (time, mentor, challenges, goals, quote) VALUES (?,?,?,?,?);", [
+    await db.run("INSERT INTO meditations (time, mentor, challenges, goals, quoteId, quote) VALUES (?,?,?,?,?,?);", [
       time,
       mentor,
       challenges,
       goals,
+      quoteId,
       quote
     ]);
     res.send("sent!");
@@ -48,7 +49,7 @@ app.post("/meditation", async (req, res) => {
 
 app.get("/meditation", async (req, res) => {
   const db = await dbPromise
-  const meditations = await db.all("SELECT * from meditations;")
+  const meditations = await db.all("SELECT m.*, q.text AS quoteId from meditations m INNER JOIN quote q ON m.quoteId = q.id;")
   res.send(meditations)
 })
 app.get("/time", (req, res) => {

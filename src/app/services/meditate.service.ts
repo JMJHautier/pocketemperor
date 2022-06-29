@@ -39,12 +39,14 @@ export class MeditateService implements DoCheck{
   challenges= new FormControl
   goals= new FormControl
   quote = new FormControl
+  quoteId= new FormControl
   registerForm = new FormGroup({
     time: this.time,
     mentor: this.mentor,
     challenges: this.challenges,
     goals: this.goals,
-    quote: this.quote
+    quote: this.quote, 
+    quoteId: this.quoteId
   })
   isSubmitted = false
 

@@ -40,6 +40,7 @@ export class MentorComponent implements DoCheck {
     async setQuote() {
       await this.getQuotes()
       this.getRandomQuote()
+      this.meditate.quoteId.setValue(this.quote.randomQuote.id)
 
     }
     getMentor():void {
