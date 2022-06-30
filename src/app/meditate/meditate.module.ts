@@ -17,6 +17,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { NavFormComponent } from './nav-form/nav-form.component';
 import { QuoteComponent } from './quote/quote.component'; 
 import { QuotesService } from '../services/quotes.service';
+import { TitleComponent } from './title/title.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { QuotesService } from '../services/quotes.service';
     ChallengeComponent,
     OverviewComponent,
     NavFormComponent,
-    QuoteComponent
+    QuoteComponent,
+    TitleComponent
   ],
   imports: [
     CommonModule,
