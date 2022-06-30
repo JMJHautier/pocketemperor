@@ -16,6 +16,7 @@ export class MentorComponent implements DoCheck {
   constructor(public meditate:MeditateService, public quote:QuotesService, public mentor:MentorService) { 
   
   }
+  mentors: IMentor[]= []
 
   ngDoCheck(): void {
     this.setDesc();
@@ -46,10 +47,15 @@ export class MentorComponent implements DoCheck {
     getMentor():void {
       this.mentor.getMentor().subscribe((data)=> {
         this.mentors = data
-
+        this.shuffle()
       })
     }
-  mentors: IMentor[]= []
+    shuffle(): void {
+      this.mentors = this.mentors.map(value => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value)
+      }
+
   selectedMentor:IMentor = {
     id:0, 
     img:"",
