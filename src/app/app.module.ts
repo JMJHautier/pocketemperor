@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table'
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReflectComponent } from './reflect/reflect.component';
+import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { ReflectComponent } from './reflect/reflect.component';
     MeditateModule,
     MatCheckboxModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

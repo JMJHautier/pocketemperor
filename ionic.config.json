@@ -1,0 +1,10 @@
+{
+  "defaultProject": "pocketemperor",
+  "projects": {
+    "pocketemperor": {
+      "name": "pocketemperor",
+      "integrations": {},
+      "type": "angular"
+    }
+  }
+}
